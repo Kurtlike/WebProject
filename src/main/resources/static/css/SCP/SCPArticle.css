@@ -1,0 +1,13 @@
+.SCPPic{
+    float: right;
+    padding: 10px;
+    margin-right: 20px;
+}
+.articleText{
+    font-size: 20px;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.3);
+}
+p{
+    padding: 10px 30px;
+}
