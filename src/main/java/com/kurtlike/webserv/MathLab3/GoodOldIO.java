@@ -12,5 +12,5 @@ public interface GoodOldIO {
     public void setStartingNumberOfIterations(int n);
     public double getAnswer();
     public double getNumberOfDivisions();
-
+    public double getAccuracy();
 }
