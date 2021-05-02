@@ -3,8 +3,13 @@ package com.kurtlike.webserv.MathLab3;
 import java.util.ArrayList;
 
 public class OnloadUpdateForms {
-    private ArrayList<String> methods = new ArrayList<>();
-    private ArrayList<String> functions = new ArrayList<>();
+    public OnloadUpdateForms(ArrayList<String> methods, ArrayList<String> functions) {
+        this.methods = methods;
+        this.functions = functions;
+    }
+
+    private ArrayList<String> methods;
+    private ArrayList<String> functions;
     public void addAllMethods(ArrayList<String> newMethods){
         methods.addAll(newMethods);
     }
