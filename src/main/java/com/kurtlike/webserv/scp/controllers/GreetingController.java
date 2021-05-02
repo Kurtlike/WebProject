@@ -1,6 +1,5 @@
-package com.kurtlike.webserv.controllers;
+package com.kurtlike.webserv.scp.controllers;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -1,6 +1,6 @@
 let main=document.getElementsByClassName("main").item(0);
 window.onload=function () {
-    let promise = fetch("/getSCPArticleTitles").
+    let promise = fetch("/getSCPArticleTitles", { method : 'GET'}).
         then(response => {
             return response.json();
         }).then((data) =>{

@@ -1,4 +1,4 @@
-package com.kurtlike.webserv.entitysPOJO;
+package com.kurtlike.webserv.scp.entitysPOJO;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

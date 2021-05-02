@@ -1,7 +1,7 @@
-package com.kurtlike.webserv.service;
+package com.kurtlike.webserv.scp.service;
 
-import com.kurtlike.webserv.DAOs.AnomalyDAO;
-import com.kurtlike.webserv.entitysPOJO.Anomaly;
+import com.kurtlike.webserv.scp.DAOs.AnomalyDAO;
+import com.kurtlike.webserv.scp.entitysPOJO.Anomaly;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;

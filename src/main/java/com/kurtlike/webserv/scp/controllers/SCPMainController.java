@@ -1,8 +1,7 @@
-package com.kurtlike.webserv.controllers;
+package com.kurtlike.webserv.scp.controllers;
 
-import com.kurtlike.webserv.entitysPOJO.Anomaly;
-import com.kurtlike.webserv.DAOs.AnomalyDAO;
-import com.kurtlike.webserv.service.AnomalyService;
+import com.kurtlike.webserv.scp.entitysPOJO.Anomaly;
+import com.kurtlike.webserv.scp.service.AnomalyService;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -22,7 +21,7 @@ public class SCPMainController {
         return anomalyService.getByName(nameSCP);
     }
 
-    @GetMapping("/getSCPArticleTitles")
+    @GetMapping(value = "/getSCPArticleTitles")
     public ArrayList<String> getSCPTitles(){
         ArrayList<String> titles = new ArrayList<>();
         titles.add("SCP-002");
