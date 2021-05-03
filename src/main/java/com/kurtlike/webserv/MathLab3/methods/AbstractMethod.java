@@ -1,9 +1,18 @@
 package com.kurtlike.webserv.MathLab3.methods;
 
-public abstract class AbstractMethod implements Method{
-    int counter;
-    double answer, accuracy, finalAccuracy, leftBorder, rightBorder;
+import com.kurtlike.webserv.MathLab3.functions.Function;
 
+public abstract class AbstractMethod implements Method{
+
+    Function function;
+    int counter;
+    boolean isEnd=false;
+    double answer, panswer, accuracy, finalAccuracy, leftBorder, rightBorder;
+
+    @Override
+    public void setFunction(Function f){
+     this.function=f;
+    }
     @Override
     public double getAccuracy() {
         return finalAccuracy;
@@ -31,7 +40,7 @@ public abstract class AbstractMethod implements Method{
     }
 
     @Override
-    public double getNumberOfDivisions() {
+    public int getNumberOfDivisions() {
         return counter;
     }
 }

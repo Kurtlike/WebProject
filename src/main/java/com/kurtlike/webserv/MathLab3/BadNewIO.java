@@ -15,7 +15,7 @@ public class BadNewIO implements GoodOldIO {
         methods=new ArrayList<>();
         methods.add("Левых прямоугольников");
         methods.add("Правых прямоугольников");
-        methods.add("Средниих прямоугольников");
+        methods.add("Средних прямоугольников");
         methods.add("Трапеций");
         methods.add("Симпсона");
     }
@@ -86,12 +86,13 @@ public class BadNewIO implements GoodOldIO {
 
     @Override
     public double getAnswer() {
+        method.setFunction(function);
         method.solve();
         return method.getAnswer();
     }
 
     @Override
-    public double getNumberOfDivisions() {
+    public int getNumberOfDivisions() {
         return method.getNumberOfDivisions();
     }
 

@@ -58,4 +58,9 @@ public class Test implements GoodOldIO {
     public int getNumberOfDivisions() {
         return 3;
     }
+
+    @Override
+    public double getAccuracy() {
+        return 0;
+    }
 }
