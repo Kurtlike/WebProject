@@ -7,7 +7,46 @@ public abstract class AbstractMethod implements Method{
     Function function;
     int counter;
     boolean isEnd=false;
-    double answer, panswer, accuracy, finalAccuracy, leftBorder, rightBorder;
+    double answer, accuracy, finalAccuracy, leftBorder, rightBorder;
+
+    @Override
+    public void resolve(){
+        switch(function.getClass().getName()){
+            case "com.kurtlike.webserv.MathLab3.functions.Function1":
+                System.out.println("First case!");
+                if(rightBorder == 0){
+                    rightBorder-= accuracy;
+                }
+                if(leftBorder == 0){
+                    leftBorder += accuracy;
+                }
+                if(rightBorder*leftBorder<0){
+                    double fanswer=solve(leftBorder, 0-accuracy, counter/2);
+                    answer = fanswer + solve(0+accuracy, rightBorder, counter/2);
+                }
+                else{
+                    answer = solve(leftBorder, rightBorder, counter);
+                }
+                break;
+            case "com.kurtlike.webserv.MathLab3.functions.Function2":
+                if(rightBorder == 0){
+                    rightBorder-= accuracy;
+                }
+                if(leftBorder == 0){
+                    leftBorder += accuracy;
+                }
+                if(rightBorder*leftBorder<0){
+                    double fanswer=solve(leftBorder, 0-accuracy, counter/2);
+                    answer = fanswer + solve(0+accuracy, rightBorder, counter/2);
+                }
+                else{
+                    answer = solve(leftBorder, rightBorder, counter);
+                }
+                break;
+            case "com.kurtlike.webserv.MathLab3.functions.Function3":
+                answer = solve(leftBorder, rightBorder, counter);
+        }
+    }
 
     @Override
     public void setFunction(Function f){

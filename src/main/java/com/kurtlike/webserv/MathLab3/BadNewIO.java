@@ -10,7 +10,7 @@ public class BadNewIO implements GoodOldIO {
     public BadNewIO(){
         functions=new ArrayList<>();
         functions.add("1/x");
-        functions.add("ln(x)");
+        functions.add("sin(x)/x");
         functions.add("x^3-3*x^2+6*x-19");
         methods=new ArrayList<>();
         methods.add("Левых прямоугольников");
@@ -40,7 +40,7 @@ public class BadNewIO implements GoodOldIO {
             case "1/x":
                 this.function = new Function1();
                 break;
-            case "ln(x)":
+            case "sin(x)/x":
                 this.function = new Function2();
                 break;
             case "x^3-3*x^2+6*x-19":
@@ -87,7 +87,7 @@ public class BadNewIO implements GoodOldIO {
     @Override
     public double getAnswer() {
         method.setFunction(function);
-        method.solve();
+        method.resolve();
         return method.getAnswer();
     }
 
