@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-    <div class="header"></div>
     <div class="main">
         <div class="form">
-            <p>Выберете метод
+            <div  class="inputs">
+                <label for="method">Выберете метод</label>
                 <select id="method"></select>
-            </p>
-            <p>Выберете функцию
+            </div>
+            <div class="inputs">
+                <label for="function">Выберете функцию</label>
                 <select id="function"></select>
-            </p>
-            <p>Введите границы
+            </div>
+            <div class="inputs, borders">Введите границы
+                <label for="left">Левая</label>
                 <input id="left" type="text">
+                <label for="right">Правая</label>
                 <input id="right" type="text">
-            </p>
-            <p>Введите точность
+            </div>
+            <div class="inputs">
+                <label for="accuracy">Введите точность</label>
                 <input id="accuracy" type="text">
-            </p>
-            <p>Введите Начальное число итераций
+            </div>
+            <div class="inputs">
+                <label for="n">Введите начальное число итераций</label>
                 <input id="n" type="text">
-            </p>
-            <button onclick="getAnswer()">решить</button>
+            </div>
+
+            <div class="inputs">
+                <label for="n">Решить</label>
+                <button onclick="getAnswer()">Решить</button>
+            </div>
+        </div>
+        <div class="chart">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="chartSettings" id="draggable" class="ui-widget-content">
+            Сдвиг по OX:<br><input id="X" type="range" min="-1000" max="1000" value="0" /><br>
+            Сдвиг по OY:<br><input id="Y" type="range" min="-1000" max="1000" value="0" /><br><br>
+            Сдвиг функции по OX:<br><input id="FUNCX" type="range" min="-600" max="600" value="0" /><br>
+            Сдвиг функции по OY:<br><input id="FUNCY" type="range" min="-400" max="400" value="0" /><br><br>
+            Масштаб:<br><input id="SIZE" type="range" min="0" max="100" value="50" /><br>
+            Поворот:<br><input id="ROTATE" type="range" min="0" max="10" step="0.01" value="0" /><br>
+
+            <p id="mouseCoor"></p>
+
         </div>
         <div class="answer"></div>
-    </div>
 
-    <div class="footer"></div>
+    </div>
 </body>
 <script src="onloadReq.js"></script>
 <script src="main.js"></script>
+<script src="chart.js"></script>
 </html>

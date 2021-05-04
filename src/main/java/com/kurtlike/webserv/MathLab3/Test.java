@@ -17,10 +17,10 @@ public class Test implements GoodOldIO {
     @Override
     public ArrayList<String> getMethods() {
         ArrayList<String> m = new ArrayList<>();
-        m.add("a+b*c");
-        m.add("a+b*c-1");
-        m.add("a+b*c-1");
-        m.add("a+b*c-2");
+        m.add("Ma+b*c");
+        m.add("Mm+b*c-1");
+        m.add("Ma+b*c-1");
+        m.add("Ma+b*c-2");
         return m;
     }
 

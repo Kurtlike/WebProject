@@ -19,5 +19,5 @@ function getAnswer(){
     });
 }
 function setAnswers(answer){
-    document.getElementsByClassName("answer")[0].innerText = "Ответ =" + answer.answer + "\n Колличество итераций =" + answer.numberOfIterations;
+    document.getElementsByClassName("answer")[0].innerText = "Ответ =" + answer.answer + "\n Количество итераций =" + answer.numberOfIterations;
 }

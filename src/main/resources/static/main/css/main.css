@@ -10,7 +10,7 @@ html,body{
 }
 body{
     font-family: 'Montserrat', sans-serif;
-    background-image: url("mainPic.png");
+    background-image: url("../mainPic.png");
     background-color: #7d045d;
     background-size: cover;
     background-repeat: no-repeat;
