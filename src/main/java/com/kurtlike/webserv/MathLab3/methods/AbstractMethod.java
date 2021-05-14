@@ -31,7 +31,7 @@ public abstract class AbstractMethod implements Method{
     }
 
     @Override
-    public double getNumberOfDivisions() {
+    public int getNumberOfDivisions() {
         return counter;
     }
 }

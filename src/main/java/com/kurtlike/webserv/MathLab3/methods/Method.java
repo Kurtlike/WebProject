@@ -7,5 +7,5 @@ public interface Method {
     public double getAccuracy();
     public void setStartingNumberOfIterations(int n);
     public double getAnswer();
-    public double getNumberOfDivisions();
+    public int getNumberOfDivisions();
 }

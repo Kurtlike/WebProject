@@ -91,7 +91,7 @@ public class BadNewIO implements GoodOldIO {
     }
 
     @Override
-    public double getNumberOfDivisions() {
+    public int getNumberOfDivisions() {
         return method.getNumberOfDivisions();
     }
 

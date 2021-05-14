@@ -15,12 +15,12 @@ function updateForms(data) {
         let funkO = document.createElement("option");
         funkO.value = func[i];
         funkO.text = func[i];
-        document.getElementById("method").append(funkO);
+        document.getElementById("function").append(funkO);
     }
     for(let i = 0; i < meth.length; i++){
         let methO = document.createElement("option");
         methO.value = meth[i];
         methO.text = meth[i];
-        document.getElementById("function").append(methO);
+        document.getElementById("method").append(methO);
     }
 }
