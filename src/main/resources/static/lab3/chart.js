@@ -24,7 +24,7 @@ ctx.fillStyle = "#ffffff";
 ctx.strokeStyle = "rgba(255,255,255,.25)"
 ctx.font = 'bold 15px sans-serif';
 let currentFunc = document.getElementById('function');
-let density = 0.1;
+let density = 0.01;
 let dotsSetBelowZero = [];
 let dotsSetAboveZero = [];
 function createXAxis(){
@@ -36,37 +36,51 @@ function createXAxis(){
     ctx.stroke()
     let linesLessNull = div((xNull - xMin), xScale);
     ctx.setLineDash([4, 16]);
-    for(let i = 1; i < linesLessNull; i++){
+    function paintLineLessNull(i) {
         ctx.beginPath();
         ctx.moveTo(xNull - xScale * i, yMin);
         ctx.lineTo(xNull - xScale * i, yMax);
         ctx.closePath();
         ctx.stroke();
+        ctx.fillText("-" + i, xNull - xScale * i - 20, yNull + 20, 20);
+    }
+    for(let i = 1; i < linesLessNull; i++){
         if(xScale > 70) {
-            ctx.fillText("-" + i, xNull - xScale * i - 20, yNull + 20, 20);
+            paintLineLessNull(i);
         }
         else if(xScale > 40) {
-            if(i % 2 == 0) ctx.fillText("-" + i, xNull - xScale * i - 20, yNull + 20, 20);
+            if(i % 2 == 0) {
+                paintLineLessNull(i);
+            }
         }
         else {
-            if(i % 10 == 0) ctx.fillText("-" + i, xNull - xScale * i - 20, yNull + 20, 20);
+            if(i % 10 == 0) {
+                paintLineLessNull(i);
+            }
         }
     }
-    let linesMoreNull = div((xMax - xNull), xScale);
-    for(let i = 1; i < linesMoreNull; i++){
+    function paintLineMoreNull(i) {
         ctx.beginPath();
         ctx.moveTo(xNull + xScale * i, yMin);
         ctx.lineTo(xNull + xScale * i, yMax);
         ctx.closePath();
         ctx.stroke();
+        ctx.fillText(i, xNull + xScale * i - 20, yNull + 20, 20);
+    }
+    let linesMoreNull = div((xMax - xNull), xScale);
+    for(let i = 1; i < linesMoreNull; i++){
         if(xScale > 70) {
-            ctx.fillText(i, xNull + xScale * i - 20, yNull + 20, 20);
+            paintLineMoreNull(i);
         }
         else if(xScale > 40) {
-            if(i % 2 == 0) ctx.fillText( i, xNull + xScale * i - 20, yNull + 20, 20);
+            if(i % 2 == 0) {
+                paintLineMoreNull(i);
+            }
         }
         else {
-            if(i % 10 == 0) ctx.fillText( i, xNull + xScale * i - 20, yNull + 20, 20);
+            if(i % 10 == 0) {
+                paintLineMoreNull(i);
+            }
         }
     }
     ctx.fillText('0',xNull - 20, yNull + 20, 20 );
@@ -80,37 +94,47 @@ function createYAxis(){
     ctx.stroke()
     let linesLessNull = div((yMax - yNull), yScale);
     ctx.setLineDash([4, 16]);
-    for(let i = 1; i < linesLessNull; i++){
+    function paintLineLessNull(i) {
         ctx.beginPath();
         ctx.moveTo(xMin, yNull + yScale * i);
         ctx.lineTo(xMax, yNull + yScale * i);
         ctx.closePath();
         ctx.stroke();
+        ctx.fillText("-" + i, xNull - 20, yNull + yScale * i, 20);
+    }
+    for(let i = 1; i < linesLessNull; i++){
         if(yScale > 70) {
-            ctx.fillText("-" + i, xNull - 20, yNull + yScale * i, 20);
+            paintLineLessNull(i)
         }
         else if(yScale > 40) {
-            if(i % 2 == 0) ctx.fillText("-" + i, xNull - 20, yNull + yScale * i, 20);
+            if(i % 2 == 0) {
+                paintLineLessNull(i)
+            }
         }
         else {
-            if(i % 10 == 0) ctx.fillText("-" + i, xNull - 20, yNull + yScale * i, 20);
+            if(i % 10 == 0) {
+                paintLineLessNull(i)
+            }
         }
     }
-    let linesMoreNull = div((yNull - yMin), yScale);
-    for(let i = 1; i < linesMoreNull; i++){
+    function paintLineMoreNull(i) {
         ctx.beginPath();
         ctx.moveTo(xMin, yNull - yScale * i);
         ctx.lineTo(xMax, yNull - yScale * i);
         ctx.closePath();
         ctx.stroke();
+        ctx.fillText(i, xNull - 20, yNull - yScale * i, 20);
+    }
+    let linesMoreNull = div((yNull - yMin), yScale);
+    for(let i = 1; i < linesMoreNull; i++){
         if(yScale > 70) {
-            ctx.fillText(i, xNull - 20, yNull - yScale * i, 20);
+            paintLineMoreNull(i)
         }
         else if(yScale > 40) {
-            if(i % 2 == 0) ctx.fillText(i, xNull - 20, yNull - yScale * i, 20);
+            if(i % 2 == 0) paintLineMoreNull(i)
         }
         else {
-            if(i % 10 == 0) ctx.fillText(i, xNull - 20, yNull - yScale * i, 20);
+            if(i % 10 == 0) paintLineMoreNull(i)
         }
     }
 }
@@ -118,7 +142,6 @@ function div(val, by){
     return (val - val % by) / by;
 }
 canvas.onclick = function(event) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     xNull = event.offsetX;
     yNull = event.offsetY;
     reload()
@@ -136,6 +159,7 @@ document.getElementById('YSIZE').onchange = function (){
 function createDots(){
    switch (currentFunc.value){
        case '1/x':{
+
            dotsSetBelowZero.splice(0,dotsSetBelowZero.length);
            for(let i = xMin; i < xNull; i += density){
                let x =-i;
@@ -146,7 +170,6 @@ function createDots(){
                dotsSetBelowZero.push(dot);
            }
            dotsSetBelowZero.sort(compare);
-
            dotsSetAboveZero.splice(0,dotsSetAboveZero.length);
            for(let i = 0; i < xMax-xNull; i += density){
                let x = i;
@@ -257,11 +280,42 @@ function checkCoord(x, y){
         y: newY
     };
 }
-
+function drawZone() {
+    let  left = Number(document.getElementById('left').value);
+    let right = Number(document.getElementById('right').value);
+    ctx.setLineDash([1, 0]);
+    ctx.lineWidth = 3;
+    ctx.moveTo(xNull + xScale * left, yNull);;
+    ctx.beginPath();
+    for(let i = 0; i < dotsSetBelowZero.length - 1; i++){
+        if(dotsSetBelowZero[i].x >= left && dotsSetBelowZero[i].x <= right){
+            let x = xNull + xScale * dotsSetBelowZero[i].x;
+            let y = yNull - yScale * dotsSetBelowZero[i].y;
+            let dot = checkCoord(x, y);
+            ctx.lineTo(dot.x, dot.y);
+        }
+    }
+    for(let i = 0; i < dotsSetAboveZero.length - 1; i++){
+        if(dotsSetAboveZero[i].x >= left && dotsSetAboveZero[i].x <=  right){
+            let x = xNull + xScale * dotsSetAboveZero[i].x;
+            let y = yNull - yScale * dotsSetAboveZero[i].y;
+            let dot = checkCoord(x, y);
+            ctx.lineTo(dot.x, dot.y);
+        }
+    }
+    ctx.lineTo(xNull + xScale * right, yNull);
+    ctx.lineTo(xNull + xScale * left, yNull);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
+    ctx.fill();
+    ctx.setLineDash([4, 16]);
+    ctx.lineWidth = 1;
+}
 function reload(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     createXAxis();
     createYAxis();
     createDots();
     drawFunc();
+    drawZone();
 }
 reload();

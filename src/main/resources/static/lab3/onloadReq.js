@@ -23,4 +23,5 @@ function updateForms(data) {
         methO.text = meth[i];
         document.getElementById("method").append(methO);
     }
+    reload();
 }
