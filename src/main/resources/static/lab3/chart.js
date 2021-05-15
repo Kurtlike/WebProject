@@ -21,13 +21,13 @@ let xScale = scale;
 let yScale = scale;
 ctx.lineWidth = 1;
 ctx.fillStyle = "#ffffff";
-ctx.strokeStyle = "rgba(255,255,255,.25)"
 ctx.font = 'bold 15px sans-serif';
 let currentFunc = document.getElementById('function');
 let density = 0.01;
 let dotsSetBelowZero = [];
 let dotsSetAboveZero = [];
 function createXAxis(){
+    ctx.strokeStyle = "rgba(255,255,255,1)"
     ctx.setLineDash([1, 1]);
     ctx.beginPath();
     ctx.moveTo(xMin, yNull);
@@ -36,13 +36,16 @@ function createXAxis(){
     ctx.stroke()
     let linesLessNull = div((xNull - xMin), xScale);
     ctx.setLineDash([4, 16]);
+    ctx.strokeStyle = "rgba(255,255,255,.25)"
     function paintLineLessNull(i) {
         ctx.beginPath();
         ctx.moveTo(xNull - xScale * i, yMin);
         ctx.lineTo(xNull - xScale * i, yMax);
         ctx.closePath();
         ctx.stroke();
+        ctx.strokeStyle = "rgba(255,255,255,1)"
         ctx.fillText("-" + i, xNull - xScale * i - 20, yNull + 20, 20);
+        ctx.strokeStyle = "rgba(255,255,255,.25)"
     }
     for(let i = 1; i < linesLessNull; i++){
         if(xScale > 70) {
@@ -65,7 +68,9 @@ function createXAxis(){
         ctx.lineTo(xNull + xScale * i, yMax);
         ctx.closePath();
         ctx.stroke();
+        ctx.strokeStyle = "rgba(255,255,255,1)"
         ctx.fillText(i, xNull + xScale * i - 20, yNull + 20, 20);
+        ctx.strokeStyle = "rgba(255,255,255,.25)"
     }
     let linesMoreNull = div((xMax - xNull), xScale);
     for(let i = 1; i < linesMoreNull; i++){
@@ -83,9 +88,12 @@ function createXAxis(){
             }
         }
     }
+    ctx.strokeStyle = "rgba(255,255,255,1)"
     ctx.fillText('0',xNull - 20, yNull + 20, 20 );
+    ctx.strokeStyle = "rgba(255,255,255,.25)"
 }
 function createYAxis(){
+    ctx.strokeStyle = "rgba(255,255,255,1)"
     ctx.setLineDash([1, 1]);
     ctx.beginPath();
     ctx.moveTo(xNull, yMax);
@@ -94,13 +102,16 @@ function createYAxis(){
     ctx.stroke()
     let linesLessNull = div((yMax - yNull), yScale);
     ctx.setLineDash([4, 16]);
+    ctx.strokeStyle = "rgba(255,255,255,.25)"
     function paintLineLessNull(i) {
         ctx.beginPath();
         ctx.moveTo(xMin, yNull + yScale * i);
         ctx.lineTo(xMax, yNull + yScale * i);
         ctx.closePath();
         ctx.stroke();
+        ctx.strokeStyle = "rgba(255,255,255,1)"
         ctx.fillText("-" + i, xNull - 20, yNull + yScale * i, 20);
+        ctx.strokeStyle = "rgba(255,255,255,.25)"
     }
     for(let i = 1; i < linesLessNull; i++){
         if(yScale > 70) {
@@ -123,7 +134,9 @@ function createYAxis(){
         ctx.lineTo(xMax, yNull - yScale * i);
         ctx.closePath();
         ctx.stroke();
+        ctx.strokeStyle = "rgba(255,255,255,1)"
         ctx.fillText(i, xNull - 20, yNull - yScale * i, 20);
+        ctx.strokeStyle = "rgba(255,255,255,.25)"
     }
     let linesMoreNull = div((yNull - yMin), yScale);
     for(let i = 1; i < linesMoreNull; i++){
@@ -309,7 +322,11 @@ function drawZone() {
     ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
     ctx.fill();
     ctx.setLineDash([4, 16]);
+    ctx.fillStyle = "rgba(255, 255, 255, 1)";
     ctx.lineWidth = 1;
+}
+document.getElementById('right').oninput = function (){
+    reload();
 }
 function reload(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
