@@ -16,7 +16,7 @@ let yNull = canvas.height / 2;
 let offsetX = 0;
 let offsetY = 0;
 let size = 10;
-let scale = 50;
+let scale = 100;
 let xScale = scale;
 let yScale = scale;
 ctx.lineWidth = 1;
@@ -141,14 +141,15 @@ function createYAxis(){
 function div(val, by){
     return (val - val % by) / by;
 }
-canvas.onclick = function(event) {
-    xNull = event.offsetX;
-    yNull = event.offsetY;
-    reload()
-}
-document.getElementById('SIZE').onchange = function (){
-    scale = this.value;
-    lineScale = 1 * scale;
+canvas.onmousedown = function(event) {
+    let x1 = event.offsetX;
+    let y1 = event.offsetY;
+    canvas.onmouseup = function (event2){
+        xNull = xNull + event2.offsetX - x1;
+        yNull = yNull - (y1 - event2.offsetY) ;
+        reload()
+    }
+
 }
 document.getElementById('XSIZE').onchange = function (){
     xScale = this.value;
