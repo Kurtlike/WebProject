@@ -20,7 +20,7 @@ html,body{
 .main{
     display: flex;
     flex-wrap: wrap;
-    height: 90%;
+    height: 97%;
     padding: 10px;
 }
 .form{
@@ -34,7 +34,6 @@ html,body{
 }
 .chart{
     flex: 5;
-    background-color: rgba(252, 3, 252, 0.2);
     overflow: hidden;
 }
 .inputs{

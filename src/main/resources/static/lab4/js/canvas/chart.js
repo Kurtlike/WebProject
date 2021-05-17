@@ -158,8 +158,18 @@ canvas.onmousedown = function(event) {
     let x1 = event.offsetX;
     let y1 = event.offsetY;
     canvas.onmouseup = function (event2){
-        xNull = xNull + event2.offsetX - x1;
-        yNull = yNull - (y1 - event2.offsetY) ;
+        let x2 = event2.offsetX;
+        let y2 = event2.offsetY;
+        if(Math.abs(x2 - x1) < 5 && Math.abs(y2 - y1) < 5){
+            let x = (x1-xNull)/xScale;
+            let y = (-y1+yNull)/yScale;
+            addDotForm(count, x ,y);
+            drawDot(x, y, 15);
+        }
+        else {
+            xNull = xNull + x2 - x1;
+            yNull = yNull - (y1 - y2) ;
+        }
         reload()
     }
 
@@ -169,89 +179,6 @@ document.getElementById('XSIZE').onchange = function (){
 }
 document.getElementById('YSIZE').onchange = function (){
     yScale = this.value;
-}
-function createDots(){
-   switch (currentFunc.value){
-       case '1/x':{
-
-           dotsSetBelowZero.splice(0,dotsSetBelowZero.length);
-           for(let i = xMin; i < xNull; i += density){
-               let x =-i;
-               let dot = {
-                   x: x,
-                   y: 1/x
-               };
-               dotsSetBelowZero.push(dot);
-           }
-           dotsSetBelowZero.sort(compare);
-           dotsSetAboveZero.splice(0,dotsSetAboveZero.length);
-           for(let i = 0; i < xMax-xNull; i += density){
-               let x = i;
-               let dot = {
-                   x: x,
-                   y: 1/x
-               };
-               dotsSetAboveZero.push(dot);
-           }
-           dotsSetAboveZero.sort(compare);
-           break;
-       }
-       case 'ln(x)':{
-           dotsSetBelowZero.splice(0,dotsSetBelowZero.length);
-           for(let i = xMin; i < xNull; i += density){
-               let x =-i;
-               let dot = {
-                   x: x,
-                   y: Math.log(x)
-               };
-               dotsSetBelowZero.push(dot);
-           }
-           dotsSetBelowZero.sort(compare);
-
-           dotsSetAboveZero.splice(0,dotsSetAboveZero.length);
-           for(let i = 0; i < xMax-xNull; i += density){
-               let x = i;
-               let dot = {
-                   x: x,
-                   y: Math.log(x)
-               };
-               dotsSetAboveZero.push(dot);
-           }
-           dotsSetAboveZero.sort(compare);
-           break;
-       }
-       case 'x^3-3*x^2+6*x-19':{
-           dotsSetBelowZero.splice(0,dotsSetBelowZero.length);
-           for(let i = xMin; i < xNull; i += density){
-               let x =-i;
-               let dot = {
-                   x: x,
-                   y: Math.pow(x,3)-3 * Math.pow(x,2) + 6 * x - 19
-               };
-               dotsSetBelowZero.push(dot);
-           }
-           dotsSetBelowZero.sort(compare);
-
-           dotsSetAboveZero.splice(0,dotsSetAboveZero.length);
-           for(let i = 0; i < xMax-xNull; i += density){
-               let x = i;
-               let dot = {
-                   x: x,
-                   y: Math.pow(x,3)-3 * Math.pow(x,2) + 6 * x - 19
-               };
-               dotsSetAboveZero.push(dot);
-           }
-           dotsSetAboveZero.sort(compare);
-           break;
-
-       }
-   }
-}
-function compare(a, b){
-    if (a.x > b.x) return 1;
-    if (b.x > a.x) return -1;
-
-    return 0;
 }
 function drawFunc(){
     ctx.setLineDash([1, 0]);
@@ -282,58 +209,17 @@ function drawFunc(){
     ctx.setLineDash([4, 16]);
     ctx.lineWidth = 1;
 }
-function checkCoord(x, y){
-    let newX = x;
-    let newY = y;
-    if(x > xMax) newX = xMax;
-    if(x < xMin) newX = xMin;
-    if(y > yMax) newY = yMax;
-    if(y < yMin) newY = yMin;
-    return {
-        x: newX,
-        y: newY
-    };
-}
-function drawZone() {
-    let  left = Number(document.getElementById('left').value);
-    let right = Number(document.getElementById('right').value);
-    ctx.setLineDash([1, 0]);
-    ctx.lineWidth = 3;
-    ctx.moveTo(xNull + xScale * left, yNull);;
-    ctx.beginPath();
-    for(let i = 0; i < dotsSetBelowZero.length - 1; i++){
-        if(dotsSetBelowZero[i].x >= left && dotsSetBelowZero[i].x <= right){
-            let x = xNull + xScale * dotsSetBelowZero[i].x;
-            let y = yNull - yScale * dotsSetBelowZero[i].y;
-            let dot = checkCoord(x, y);
-            ctx.lineTo(dot.x, dot.y);
-        }
-    }
-    for(let i = 0; i < dotsSetAboveZero.length - 1; i++){
-        if(dotsSetAboveZero[i].x >= left && dotsSetAboveZero[i].x <=  right){
-            let x = xNull + xScale * dotsSetAboveZero[i].x;
-            let y = yNull - yScale * dotsSetAboveZero[i].y;
-            let dot = checkCoord(x, y);
-            ctx.lineTo(dot.x, dot.y);
-        }
-    }
-    ctx.lineTo(xNull + xScale * right, yNull);
-    ctx.lineTo(xNull + xScale * left, yNull);
-    ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
-    ctx.fill();
-    ctx.setLineDash([4, 16]);
+function drawDot(x, y, size){
+    ctx.fillStyle = "rgba(255,0,0,0.7)";
+    ctx.fillRect(xNull + xScale * x -size/2, yNull - yScale * y - size/2,  size, size);
+    ctx.fillStyle = "rgba(255,255,255,1)";
+    ctx.fillRect(xNull + xScale * x -size/6, yNull - yScale * y - size/6,  size/3, size/3);
     ctx.fillStyle = "rgba(255, 255, 255, 1)";
-    ctx.lineWidth = 1;
-}
-document.getElementById('right').oninput = function (){
-    reload();
 }
 function reload(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     createXAxis();
     createYAxis();
-    createDots();
-    drawFunc();
-    drawZone();
+    drawDotsForApproximate();
 }
 reload();

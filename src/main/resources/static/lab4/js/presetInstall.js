@@ -3,6 +3,7 @@ let numberOfDots = 12;
 let dots = [];
 presetsSelect.onchange = function (){
     setPreset(presetsSelect.value);
+    setDots(dots);
 }
 function setPreset(Name){
     switch (Name){
