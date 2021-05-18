@@ -73,6 +73,8 @@ html,body{
     left: 20%;
     top: 100px;
     margin: 5px;
+    display: flex;
+    flex-direction: column;
 }
 #XSIZE,#YSIZE{
     width: 100%;
@@ -90,4 +92,31 @@ html,body{
 }
 .extra > label{
     margin: 20px;
+}
+
+#answer > div{
+    display: flex;
+    margin: 10px;
+}
+#answer > h5{
+    font-size: 25px;
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    margin: 10px;
+}
+#answer > div > input{
+    color: #5f2266;
+    font-size: 20px;
+    font-family: 'Lora', serif;
+    flex: 1;
+    max-width: 30px;
+
+}
+#answer > div > label{
+    white-space: nowrap;
+}
+.checkBoxes{
+    margin: 12px 5px 5px;
+    width: 20px;
+    height: 20px;
 }

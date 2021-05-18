@@ -3,7 +3,7 @@ package com.kurtlike.webserv.MathLab4.pojo;
 import java.util.ArrayList;
 
 public class Answer {
-    private String bestFunction;
+    private int numberOfBestFunction;
     private String bestMethodName;
     private double PierceKoef;
     private ArrayList<FunctionObject> functionObjects;
@@ -16,12 +16,12 @@ public class Answer {
         this.functionObjects = functionObjects;
     }
 
-    public String getBestFunction() {
-        return bestFunction;
+    public int getNumberOfBestFunction() {
+        return numberOfBestFunction;
     }
 
-    public void setBestFunction(String bestFunction) {
-        this.bestFunction = bestFunction;
+    public void setNumberOfBestFunction(int numberOfBestFunction) {
+        this.numberOfBestFunction = numberOfBestFunction;
     }
 
     public String getBestMethodName() {
