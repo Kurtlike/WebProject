@@ -257,7 +257,7 @@ function drawFunc(){
     ctx.setLineDash([1, 0]);
     ctx.strokeStyle = "rgb(255,255,255)"
     ctx.lineWidth = 3;
-    ctx.moveTo(dotsSetBelowZero[0].x, dotsSetBelowZero[0].y);
+    ctx.moveTo(xNull + xScale * dotsSetBelowZero[0].x, yNull - yScale * dotsSetBelowZero[0].y);
     ctx.beginPath();
     for (let i = 1; i < dotsSetBelowZero.length; i++) {
         let x = xNull + xScale * dotsSetBelowZero[i].x;
@@ -268,7 +268,7 @@ function drawFunc(){
     }
     ctx.stroke();
 
-    ctx.moveTo(dotsSetAboveZero[0].x, dotsSetAboveZero[0].y);
+    ctx.moveTo(xNull + xScale * dotsSetAboveZero[0].x,yNull - yScale * dotsSetAboveZero[0].y);
     ctx.beginPath();
     for (let i = 1; i < dotsSetAboveZero.length; i++) {
         let x = xNull + xScale * dotsSetAboveZero[i].x;

@@ -23,9 +23,6 @@ ctx.lineWidth = 1;
 ctx.fillStyle = "#ffffff";
 ctx.font = 'bold 15px sans-serif';
 let currentFunc = document.getElementById('function');
-let density = 0.01;
-let dotsSetBelowZero = [];
-let dotsSetAboveZero = [];
 function createXAxis(){
     ctx.strokeStyle = "rgba(255,255,255,1)"
     ctx.setLineDash([1, 1]);
@@ -181,33 +178,40 @@ document.getElementById('YSIZE').onchange = function (){
     yScale = this.value;
 }
 function drawFunc(){
+    let dotset = createDotsSet();
     ctx.setLineDash([1, 0]);
     ctx.strokeStyle = "rgb(255,255,255)"
     ctx.lineWidth = 3;
-    ctx.moveTo(dotsSetBelowZero[0].x, dotsSetBelowZero[0].y);
-    ctx.beginPath();
-    for (let i = 1; i < dotsSetBelowZero.length; i++) {
-        let x = xNull + xScale * dotsSetBelowZero[i].x;
-        let y = yNull - yScale * dotsSetBelowZero[i].y;
-        let dot = checkCoord(x, y);
-        ctx.lineTo(dot.x, dot.y);
-
+    let strokeStyles = ["rgb(236,228,46)","rgb(43,73,186)","rgb(210,48,48)","rgb(38,172,29)","rgb(255,255,255)"]
+    for(let i = 0; i < dotset.length; i++){
+        ctx.strokeStyle = strokeStyles[i%4];
+        let dots = dotset[i];
+        ctx.moveTo(dots[0].x, dots[0].y);
+        ctx.beginPath();
+        for (let j = 1; j < dots.length; j++) {
+            let x = xNull + xScale * dots[j].x;
+            let y = yNull - yScale * dots[j].y;
+            let dot = checkCoord(x, y);
+            ctx.lineTo(dot.x, dot.y);
+        }
+        ctx.stroke();
     }
-    ctx.stroke();
 
-    ctx.moveTo(dotsSetAboveZero[0].x, dotsSetAboveZero[0].y);
-    ctx.beginPath();
-    for (let i = 1; i < dotsSetAboveZero.length; i++) {
-        let x = xNull + xScale * dotsSetAboveZero[i].x;
-        let y = yNull - yScale * dotsSetAboveZero[i].y;
-        let dot = checkCoord(x, y);
-        ctx.lineTo(dot.x, dot.y);
-
-    }
-    ctx.stroke();
     ctx.strokeStyle = "rgba(255,255,255,.25)";
     ctx.setLineDash([4, 16]);
     ctx.lineWidth = 1;
+}
+function checkCoord(x, y){
+    let newX = x;
+    let newY = y;
+    if(x > xMax) newX = xMax;
+    if(x < xMin) newX = xMin;
+    if(y > yMax) newY = yMax;
+    if(y < yMin) newY = yMin;
+    return {
+        x: newX,
+        y: newY
+    };
 }
 function drawDot(x, y, size){
     ctx.fillStyle = "rgba(255,0,0,0.7)";
@@ -221,5 +225,6 @@ function reload(){
     createXAxis();
     createYAxis();
     drawDotsForApproximate();
+    drawFunc()
 }
 reload();

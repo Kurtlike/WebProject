@@ -48,7 +48,7 @@ function createAnswerForm(answer) {
             if(koefs[j] !== 0){
 
                 let kform = document.createElement("input");
-                kform.className =""
+                kform.id = i + "" + j + "input";
                 kform.type = "text";
                 kform.value = koefs[j]
                 let kLabel = document.createElement("label");

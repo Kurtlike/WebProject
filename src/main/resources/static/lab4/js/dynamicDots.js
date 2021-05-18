@@ -49,10 +49,10 @@ function getDots(){
     return dots;
 }
 function compare(a, b){
-    a = parseFloat(a);
-    b = parseFloat(b);
-    if (a.x > b.x) return 1;
-    if (b.x > a.x) return -1;
+    let x1 = parseFloat(a.x);
+    let x2 = parseFloat(b.x);
+    if (x1 > x2) return 1;
+    if (x2 > x1) return -1;
 
     return 0;
 }

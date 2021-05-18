@@ -4,7 +4,7 @@ function getAnswer(){
     let accuracy = document.getElementById("accuracy").value;
     let n = document.getElementById("n").value;
     if(validateNum(left) && validateNum(right) && validatePositive(accuracy) && validateNatural(n)) {
-        let promise = fetch("lab3/getAnswer", {
+        let promise = fetch("/lab3/getAnswer", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

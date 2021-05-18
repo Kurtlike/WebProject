@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="main">
@@ -35,7 +36,7 @@
             <canvas id="canvas"></canvas>
         </div>
         <div class="chartSettings" id="draggable" class="ui-widget-content">
-            <button onclick="reload()" class="inputForm" >Обновить график</button>
+            <button onclick="reload()" class="inputForm button" >Обновить график</button>
             Масштаб X:<br><input id="XSIZE" type="range" min="0.1" max="200" value="30" /><br>
             Масштаб Y:<br><input id="YSIZE" type="range" min="0.1" max="200" value="30" /><br>
             <div id="answer"></div>
@@ -48,6 +49,7 @@
 <script src="js/main.js"></script>
 <script src="js/canvas/dotsCreate.js"></script>
 <script src="js/canvas/chart.js"></script>
+<script src="js/canvas/drawFunction.js"></script>
 <script src="js/dynamicDots.js"></script>
 <script src="js/presetInstall.js"></script>
 <script src="js/fileReader.js"></script>
