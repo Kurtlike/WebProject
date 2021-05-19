@@ -14,6 +14,7 @@ function getAnswer(){
         return response.json();
     }).then((answer) => {
        createAnswerForm(answer);
+       reload();
     });
 }
 
@@ -34,6 +35,10 @@ function createAnswerForm(answer) {
         chekBox.type = "checkbox";
         chekBox.className = "checkBoxes";
         chekBox.id = "checkBox" + i;
+        chekBox.setAttribute('onclick', 'reload()');
+        if(answer.bestMethodName === functionsObjects[i].methodName){
+            chekBox.checked = true;
+        }
         let checkLabel = document.createElement("label");
         checkLabel.append(chekBox);
         funcForm.append(checkLabel);
