@@ -37,7 +37,7 @@ function validateNum(string){
     return re.test(string);
 }
 function validatePositive(string) {
-    let re = new RegExp("^0(,|\.)[0-9]?$")
+    let re = new RegExp("^0(,|\.)[0-9]*[1-9]$")
     return re.test(string);
 }
 function validateNatural(string) {
