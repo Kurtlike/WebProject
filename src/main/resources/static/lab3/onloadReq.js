@@ -1,5 +1,5 @@
 window.onload=function () {
-    let promise = fetch("/getOnload", { method : 'GET'}).
+    let promise = fetch("/lab3/getOnload", { method : 'GET'}).
     then(response => {
         return response.json();
     }).then((data) =>{

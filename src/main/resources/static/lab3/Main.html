@@ -10,43 +10,41 @@
         <div class="form">
             <div  class="inputs">
                 <label for="method">Выберете метод</label>
-                <select id="method"></select>
+                <select id="method" class="inputForm"></select>
             </div>
             <div class="inputs">
                 <label for="function">Выберете функцию</label>
-                <select id="function"></select>
+                <select id="function" class="inputForm" ></select>
             </div>
-            <div class="inputs, borders">Введите границы
-                <label for="left">Левая</label>
-                <input id="left" type="text">
-                <label for="right">Правая</label>
-                <input id="right" type="text">
+            <div class="inputs">
+                <label for="left">Левая граница</label>
+                <input id="left" class="inputForm" type="text" >
+                <label for="right">Правая граница</label>
+                <input id="right" class="inputForm" type="text" >
             </div>
             <div class="inputs">
                 <label for="accuracy">Введите точность</label>
-                <input id="accuracy" type="text">
+                <input id="accuracy" type="text" class="inputForm"  min="0" max="1" >
             </div>
             <div class="inputs">
                 <label for="n">Введите начальное число итераций</label>
-                <input id="n" type="text">
+                <input id="n" type="text" class="inputForm" >
             </div>
 
             <div class="inputs">
-                <label for="n">Решить</label>
-                <button onclick="getAnswer()">Решить</button>
+                <button onclick="getAnswer()" class="inputForm">Решить</button>
             </div>
+            <div class="inputs" id="errorsText"></div>
         </div>
         <div class="chart">
             <canvas id="canvas"></canvas>
         </div>
         <div class="chartSettings" id="draggable" class="ui-widget-content">
-            Масштаб:<br><input id="SIZE" type="range" min="0" max="100" value="50" /><br>
-            Масштаб X:<br><input id="XSIZE" type="range" min="0" max="100" value="50" /><br>
-            Масштаб Y:<br><input id="YSIZE" type="range" min="0" max="100" value="50" /><br>
-            <p id="mouseCoor"></p>
-
+            Масштаб X:<br><input id="XSIZE" type="range" min="0.1" max="200" value="100" /><br>
+            Масштаб Y:<br><input id="YSIZE" type="range" min="0.1" max="200" value="100" /><br>
+            <div class="answer"></div>
         </div>
-        <div class="answer"></div>
+
 
     </div>
 </body>
