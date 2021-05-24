@@ -21,7 +21,7 @@ public abstract class Rectangles extends AbstractMethod implements Method {
            }
            System.out.println(solution);
            if (Math.abs(solution - psolution) > accuracy) {
-               counter*=2;
+               counter++;
                psolution=solution;
            }
            else{

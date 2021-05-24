@@ -21,7 +21,7 @@ public class Trapezoid extends AbstractMethod implements Method{
                 solution += di*(function.fun(i)+function.fun(i+di))/2;
             }
             if (Math.abs(solution - psolution) > accuracy) {
-                counter*=2;
+                counter++;
                 psolution=solution;
             }
             else{

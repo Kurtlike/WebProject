@@ -22,6 +22,7 @@ public abstract class AbstractMethod implements Method{
                 if(rightBorder*leftBorder<0){
                     double fanswer=solve(leftBorder, 0-accuracy, counter/2);
                     answer = fanswer + solve(0+accuracy, rightBorder, counter/2);
+                    innercounter*=2;
                 }
                 else{
                     answer = solve(leftBorder, rightBorder, counter);
@@ -37,6 +38,7 @@ public abstract class AbstractMethod implements Method{
                 if(rightBorder*leftBorder<0){
                     double fanswer=solve(leftBorder, 0-accuracy, counter/2);
                     answer = fanswer + solve(0+accuracy, rightBorder, counter/2);
+                    innercounter*=2;
                 }
                 else{
                     answer = solve(leftBorder, rightBorder, counter);
