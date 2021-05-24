@@ -86,7 +86,7 @@ public class BadNewIO implements GoodOldIO {
 
     @Override
     public double getAnswer() {
-        method.solve();
+        method.resolve();
         return method.getAnswer();
     }
 
