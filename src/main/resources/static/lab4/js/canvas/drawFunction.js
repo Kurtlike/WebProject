@@ -1,20 +1,73 @@
 let density = 0.01;
 
-function createDotsForDraw (koefs) {
+function createDotsForDraw (koefs, method) {
     let Dots = [];
-    for(let i = xMin; i < xMax; i += density){
-        let x = i < xNull? -i : i - xNull;
-        let y = 0;
-        for(let j = 0; j < koefs.length; j++){
-            y+= koefs[j] * Math.pow(x, j);
+    switch (method){
+        case "Степенная:":{
+            for(let i = xMin; i < xMax; i += density){
+                let x = i < xNull? -i : i - xNull;
+                let y = 0;
+                for(let j = 0; j < koefs.length; j++){
+                    y+= parseFloat(koefs[j]) * Math.pow(x, j);
+                }
+                let dot = {
+                    x: x,
+                    y: y
+                }
+                Dots.push(dot);
+            }
+            return Dots.sort(compare2);
         }
-        let dot = {
-            x: x,
-            y: y
+        case "Линейная:":{
+            for(let i = xMin; i < xMax; i += density){
+                let x = i < xNull? -i : i - xNull;
+                let y = parseFloat(koefs[0]) +  parseFloat(koefs[1]) * x;
+                let dot = {
+                    x: x,
+                    y: y
+                }
+                Dots.push(dot);
+            }
+            return Dots.sort(compare2);
         }
-        Dots.push(dot);
+        case "Экспоненциальная:":{
+            for(let i = xMin; i < xMax; i += density){
+                let x = i < xNull? -i : i - xNull;
+                let y = parseFloat(koefs[0]) * Math.exp(parseFloat(koefs[1]) * x);
+                let dot = {
+                    x: x,
+                    y: y
+                }
+                Dots.push(dot);
+            }
+            return Dots.sort(compare2);
+        }
+        case "Логарифмическая:":{
+            for(let i = xMin; i < xMax; i += density){
+                let x = i < xNull? -i : i - xNull;
+                let y = parseFloat(koefs[0]) *Math.log(x) + parseFloat(koefs[1]);
+                let dot = {
+                    x: x,
+                    y: y
+                }
+                Dots.push(dot);
+            }
+            return Dots.sort(compare2);
+        }
+        case "Квадратичная:":{
+            for(let i = xMin; i < xMax; i += density){
+                let x = i < xNull? -i : i - xNull;
+                let y = parseFloat(koefs[0]) + parseFloat(koefs[1])* x + parseFloat(koefs[2]) * Math.pow(x, 2);
+                let dot = {
+                    x: x,
+                    y: y
+                }
+                Dots.push(dot);
+            }
+            return Dots.sort(compare2);
+        }
     }
-    return Dots.sort(compare2);
+
 }
 function getKoefs(k){
     let koefs = [];
@@ -40,7 +93,8 @@ function createDotsSet() {
     let chosenN = getChosenBoxes();
     let dotSet = [];
     for(let i = 0; i < chosenN.length; i++){
-        dotSet.push(createDotsForDraw(getKoefs(chosenN[i])));
+        let method = document.getElementById("methodLabel" + chosenN[i]);
+        dotSet.push(createDotsForDraw(getKoefs(chosenN[i]), method.innerText));
     }
     return dotSet;
 }

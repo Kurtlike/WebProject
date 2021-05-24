@@ -182,9 +182,9 @@ function drawFunc(){
     ctx.setLineDash([1, 0]);
     ctx.strokeStyle = "rgb(255,255,255)"
     ctx.lineWidth = 3;
-    let strokeStyles = ["rgb(236,228,46)","rgb(43,73,186)","rgb(210,48,48)","rgb(38,172,29)","rgb(255,255,255)"]
+    let strokeStyles = ["rgb(107,188,151)","rgb(43,73,186)","rgb(210,48,48)","rgb(38,172,29)","rgb(255,255,255)","rgb(255,255,255)"]
     for(let i = 0; i < dotset.length; i++){
-        ctx.strokeStyle = strokeStyles[i%4];
+        ctx.strokeStyle = strokeStyles[i%5];
         let dots = dotset[i];
         ctx.moveTo(dots[0].x, dots[0].y);
         ctx.beginPath();

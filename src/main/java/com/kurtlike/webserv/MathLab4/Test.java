@@ -10,6 +10,8 @@ public class Test implements GoodOldIO {
     FunctionObject functionObject = new FunctionObject();
     FunctionObject functionObject2 = new FunctionObject();
     FunctionObject functionObject3 = new FunctionObject();
+    FunctionObject functionObject4 = new FunctionObject();
+    FunctionObject functionObject5 = new FunctionObject();
     @Override
     public void setDotsForApproximate(ArrayList<Dot> dots) {
         this.dots = dots;
@@ -19,17 +21,26 @@ public class Test implements GoodOldIO {
     public ArrayList<FunctionObject> getFunctionObjects() {
         ArrayList<FunctionObject> arrayList = new ArrayList<>();
 
-        functionObject.setACoefficients(new double[]{0, 1.2, 2.2, 0, 1.2});
-        functionObject.setMethodName("bestMethd");
+        functionObject.setACoefficients(new double[]{1, 1.2});
+        functionObject.setMethodName("Линейная");
         arrayList.add(functionObject);
 
         functionObject2.setACoefficients(new double[]{0, 0, 1, 0, 9});
-        functionObject2.setMethodName("methd2");
+        functionObject2.setMethodName("Степенная");
         arrayList.add(functionObject2);
 
-        functionObject3.setACoefficients(new double[]{1, 2, 2});
-        functionObject3.setMethodName("methd3");
+        functionObject3.setACoefficients(new double[]{3, 2});
+        functionObject3.setMethodName("Экспоненциальная");
         arrayList.add(functionObject3);
+
+        functionObject4.setACoefficients(new double[]{1, 2});
+        functionObject4.setMethodName("Логарифмическая");
+        arrayList.add(functionObject4);
+
+        functionObject5.setACoefficients(new double[]{1, 2, 2});
+        functionObject5.setMethodName("Квадратичная");
+        arrayList.add(functionObject5);
+
 
         return arrayList;
     }
@@ -41,7 +52,7 @@ public class Test implements GoodOldIO {
 
     @Override
     public String getBestMethodName() {
-        return "bestMethd";
+        return "Квадратичная";
     }
 
 
