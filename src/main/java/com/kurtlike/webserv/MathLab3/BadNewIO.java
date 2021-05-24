@@ -15,7 +15,7 @@ public class BadNewIO implements GoodOldIO {
         methods=new ArrayList<>();
         methods.add("Левых прямоугольников");
         methods.add("Правых прямоугольников");
-        methods.add("Средниих прямоугольников");
+        methods.add("Средних прямоугольников");
         methods.add("Трапеций");
         methods.add("Симпсона");
     }
