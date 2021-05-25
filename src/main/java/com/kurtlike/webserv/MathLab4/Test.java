@@ -25,7 +25,7 @@ public class Test implements GoodOldIO {
         functionObject.setMethodName("Линейная");
         arrayList.add(functionObject);
 
-        functionObject2.setACoefficients(new double[]{0, 0, 1, 0, 9});
+        functionObject2.setACoefficients(new double[]{ 1, 9});
         functionObject2.setMethodName("Степенная");
         arrayList.add(functionObject2);
 
