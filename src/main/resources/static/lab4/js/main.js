@@ -70,34 +70,13 @@ function createAnswerForm(answer) {
                 break;
             }
             case "Степенная":{
-                for(let j = 0; j < koefs.length; j++){
-                    if(koefs[j] !== 0){
-
-                        let kform = document.createElement("input");
-                        kform.id = i + "" + j + "input";
-                        kform.type = "text";
-                        kform.value = koefs[j]
-                        let kLabel = document.createElement("label");
-                        if(j < koefs.length -1){
-                            if(j === 0){
-                                kLabel.innerHTML = "<sup></sup> + "
-                            }
-                            else if(j === 1){
-                                kLabel.innerHTML = "x<sup></sup> + ";
-                            }
-                            else kLabel.innerHTML = "x<sup>"+j+"</sup> + ";
-                        }
-                        else {
-                            if(j === 0){
-                            }
-                            else if(j === 1){
-                                kLabel.innerHTML = "x<sup></sup>";
-                            }
-                            else kLabel.innerHTML = "x<sup>"+j+"</sup>";
-                        }
-                        funcForm.append(kform, kLabel);
-                    }
-                }
+                let kform = document.createElement("input");
+                kform.id = i + "" + 0 + "input";
+                kform.type = "text";
+                kform.value = koefs[0]
+                let kLabel = document.createElement("label");
+                kLabel.innerHTML = "x<sup> <input id=\""+ i +"1input\" type=\"text\" value=\""+koefs[1]+"\"></sup>";
+                funcForm.append(kform, kLabel);
                 break;
             }
             case "Экспоненциальная":{
@@ -108,7 +87,6 @@ function createAnswerForm(answer) {
                 let kLabel = document.createElement("label");
                 kLabel.innerHTML = "e<sup> <input id=\""+ i +"1input\" type=\"text\" value=\""+koefs[1]+"\"> x</sup>";
                 funcForm.append(kform, kLabel);
-
                 break;
             }
             case "Логарифмическая":{

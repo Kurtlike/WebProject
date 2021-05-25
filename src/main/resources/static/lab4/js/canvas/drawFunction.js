@@ -7,9 +7,7 @@ function createDotsForDraw (koefs, method) {
             for(let i = xMin; i < xMax; i += density){
                 let x = i < xNull? -i : i - xNull;
                 let y = 0;
-                for(let j = 0; j < koefs.length; j++){
-                    y+= parseFloat(koefs[j]) * Math.pow(x, j);
-                }
+                y+= parseFloat(koefs[0]) * Math.pow(x, (koefs[1]));
                 let dot = {
                     x: x,
                     y: y
