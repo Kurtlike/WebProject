@@ -1,5 +1,6 @@
 package com.kurtlike.webserv.MathLab3;
 
+
 import java.util.ArrayList;
 
 public interface GoodOldIO {
@@ -12,5 +13,5 @@ public interface GoodOldIO {
     public void setStartingNumberOfIterations(int n);
     public double getAnswer();
     public int getNumberOfDivisions();
-
+    public double getAccuracy();
 }

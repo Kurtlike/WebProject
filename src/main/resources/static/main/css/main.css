@@ -10,7 +10,7 @@ html,body{
 }
 body{
     font-family: 'Montserrat', sans-serif;
-    background-image: url("mainPic.png");
+    background-image: url("../mainPic.png");
     background-color: #7d045d;
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,6 +51,7 @@ a.nav_link{
     text-decoration: underline;
 }
 .footer{
+    padding: 10px;
     width: 100%;
     height: 15%;
     position: relative;
@@ -72,12 +73,40 @@ a.nav_link{
 }
 a.bottom_nav_link{
     display:table-row;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
     color:black;
     text-decoration: none;
 }
 .main{
     position: relative;
-    min-height: 1000px;
+    display: flex;
+    height: 75%;
+}
+.newsBlocks{
+    margin: 30px;
+    padding: 20px;
+    flex: 1;
+    max-height: 40%;
+    max-width: 20%;
+    width: 500px;
+    height: 500px;
+
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.2);
+    transform: scale(1) ;
+    transition: 1s;
+
+}
+a.newsBlocks{
+    font-size: 20px;
+    color: white;
+    display: block;
+}
+.newsBlocks:hover{
+    transform: scale(1.2) ;
+    transition: 1s;
+}
+.transparent25{
+    opacity: 0.25;
+
 }
