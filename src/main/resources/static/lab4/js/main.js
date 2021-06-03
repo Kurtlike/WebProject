@@ -1,7 +1,10 @@
 let functionsObjects;
 function getAnswer(){
-    let dots = getDots()
 
+    let dots = getDots()
+    console.log(JSON.stringify({
+        dots : dots
+    }))
     let promise = fetch("/lab4/getAnswer", {
         method: 'POST',
         headers: {
