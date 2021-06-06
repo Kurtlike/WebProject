@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="lab5.css">
+    <link rel="shortcut icon" href="faviconlab5.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="main">
+        <div class="form">
+            <div id="extraVariants">
+                <div class="extra">
+                    <label for="inputFile" >Из файла</label>
+                    <input type="file" class = "inputs" id="inputFile">
+                </div>
+                <div class="extra">
+                    <label for="presets" >Пресет</label>
+                    <select class="inputs" id="presets"></select>
+                </div>
+
+            </div>
+            <div class="inputs">
+                <button id="deleteAllDots" onclick="deleteAll()" class="inputForm">Очистить</button>
+            </div>
+            <div class="inputs" id="dynamicDots"></div>
+            <div class="inputs">
+                <button id="addDot" class="inputForm">Добавить точку</button>
+            </div>
+            <div class="inputs">
+                <button onclick="getAnswer()" class="inputForm">Найти аппроксимирующую функцию</button>
+            </div>
+            <div class="inputs" id="errorsText"></div>
+        </div>
+        <div class="chart">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="chartSettings" id="draggable" class="ui-widget-content">
+            <button onclick="reload()" class="inputForm button" >Обновить график</button>
+            Масштаб X:<br><input id="XSIZE" type="range" min="0.1" max="200" value="30" /><br>
+            Масштаб Y:<br><input id="YSIZE" type="range" min="0.1" max="200" value="30" /><br>
+            <div id="getAnswer"></div>
+            <div id="answer"></div>
+        </div>
+
+
+    </div>
+</body>
+<script src="jslab5/onload.js"></script>
+<script src="jslab5/main.js"></script>
+<script src="jslab5/canvas/dotsCreate.js"></script>
+<script src="jslab5/canvas/chart.js"></script>
+<script src="jslab5/dynamicDots.js"></script>
+<script src="jslab5/presetInstall.js"></script>
+<script src="jslab5/fileReader.js"></script>
+</html>
