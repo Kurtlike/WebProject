@@ -14,7 +14,7 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("lab5")
 public class Lab5Controller {
-    GoodOldIO goodOldIO = new Test();
+    GoodOldIO goodOldIO = new BadNewIO();
     @PostMapping(value = "/getAnswer")
     public Dots setDotsForApproximate(@RequestBody Dots dots){
         goodOldIO.setDotsForInterpolate(dots.getDots());
