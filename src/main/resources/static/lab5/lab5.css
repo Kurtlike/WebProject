@@ -81,7 +81,7 @@ html,body{
     height: 20px;
 }
 #dynamicDots{
-    height: 60%;
+    height: 50%;
     overflow: auto;
 }
 #extraVariants{

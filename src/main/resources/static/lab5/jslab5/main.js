@@ -1,6 +1,6 @@
 var funcDots =[]
 function getAnswer(){
-
+    let methods = document.getElementById("methods")
     let dots = getDots()
     let promise = fetch("/lab5/getAnswer", {
         method: 'POST',
@@ -8,6 +8,7 @@ function getAnswer(){
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
+            methodName: methods.value,
             dots : dots
         })
     }).then(response => {

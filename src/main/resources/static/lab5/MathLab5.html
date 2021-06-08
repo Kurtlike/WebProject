@@ -28,8 +28,16 @@
                 <button id="addDot" class="inputForm">Добавить точку</button>
             </div>
             <div class="inputs">
+                <label for="methods">Выберете метод</label>
+                <select id="methods" class="inputForm" >
+                    <option value="Полином Лагранжа">Полином Лагранжа</option>
+                    <option value="Полином Ньютона">Полином Ньютона</option>
+                </select>
+            </div>
+            <div class="inputs">
                 <button onclick="getAnswer()" class="inputForm">Найти аппроксимирующую функцию</button>
             </div>
+
             <div class="inputs" id="errorsText"></div>
         </div>
         <div class="chart">
