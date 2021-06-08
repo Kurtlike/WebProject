@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("lab6")
 public class Lab6Controller {
-    GoodOldIO goodOldIO = new Test();
+    GoodOldIO goodOldIO = new BadNewIO();
     @GetMapping(value = "/getOnload")
     public OnloadUpdateForms onloadUpdate(){
         return new OnloadUpdateForms( goodOldIO.getFunctions());

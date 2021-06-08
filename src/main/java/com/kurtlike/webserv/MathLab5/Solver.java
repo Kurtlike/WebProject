@@ -6,16 +6,28 @@ import java.util.ArrayList;
 
 public class Solver {
     double[] f;
-    public ArrayList<Dot> solve(ArrayList<Dot> dots){
+    public ArrayList<Dot> solve(ArrayList<Dot> dots, String methodName){
         f = new double[dots.size()];
         ArrayList<Dot> outDots= new ArrayList();
         setDiffferences(dots);
         double max=dots.get(dots.size()-1).x;
-        for(double i=dots.get(0).x-1;i<max+1;i+=0.05){
-            Dot dot = new Dot();
-            dot.x=i;
-            dot.y=newtone(i,dots);
-            outDots.add(dot);
+        switch (methodName){
+            case "Полином Лагранжа":
+                for(double i=dots.get(0).x-1;i<max+1;i+=0.05){
+                    Dot dot = new Dot();
+                    dot.x=i;
+                    dot.y=lagrange(i,dots);
+                    outDots.add(dot);
+                }
+                break;
+            case "Полином Ньютона":
+                for(double i=dots.get(0).x-1;i<max+1;i+=0.05){
+                    Dot dot = new Dot();
+                    dot.x=i;
+                    dot.y=newtone(i,dots);
+                    outDots.add(dot);
+                }
+                break;
         }
         return outDots;
     }
