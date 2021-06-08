@@ -17,7 +17,7 @@ function getAnswer(){
                 selectedFunction: document.getElementById("function").value,
                 leftBorder: left,
                 rightBorder: right,
-                accuracy: Y0,
+                ynull: Y0,
                 step: step,
             })
         }).then(response => {
@@ -72,6 +72,7 @@ function setAnswers(answer){
 
 
     let answerDiv = document.getElementById("answer")
+    answerDiv.innerHTML="";
     answerDiv.style.backgroundColor = "rgba(255,255,255,0.5)"
     let lable1 = document.createElement("label")
     let lable2 = document.createElement("label")
