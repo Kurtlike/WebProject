@@ -5,7 +5,7 @@ var funcDotsM2NM =[]
 function getAnswer(){
     let left = document.getElementById("left").value;
     let right = document.getElementById("right").value;
-    let accuracy = document.getElementById("accuracy").value;
+    let Y0 = document.getElementById("Y0").value;
     let step = document.getElementById("step").value;
 
         let promise = fetch("/lab6/getAnswer", {
@@ -17,7 +17,7 @@ function getAnswer(){
                 selectedFunction: document.getElementById("function").value,
                 leftBorder: left,
                 rightBorder: right,
-                accuracy: accuracy,
+                accuracy: Y0,
                 step: step,
             })
         }).then(response => {

@@ -19,7 +19,7 @@ public class Lab6Controller {
     public Answer getAnswer(@RequestBody RequestForAnswer requestForAnswer){
         goodOldIO.setChosenFunction(requestForAnswer.getSelectedFunction());
         goodOldIO.setInterval(requestForAnswer.getLeftBorder(), requestForAnswer.getRightBorder());
-        goodOldIO.setAccuracy(requestForAnswer.getAccuracy());
+        goodOldIO.setY0(requestForAnswer.getY0());
         goodOldIO.setStep(requestForAnswer.getStep());
         return goodOldIO.getAnswer();
     }

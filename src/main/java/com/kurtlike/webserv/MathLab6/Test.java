@@ -29,7 +29,7 @@ public class Test implements GoodOldIO{
     }
 
     @Override
-    public void setAccuracy(double accuracy) {
+    public void setY0(double accuracy) {
 
     }
 
