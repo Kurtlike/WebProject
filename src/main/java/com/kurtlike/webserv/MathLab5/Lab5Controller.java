@@ -18,6 +18,7 @@ public class Lab5Controller {
     @PostMapping(value = "/getAnswer")
     public Dots setDotsForApproximate(@RequestBody Dots dots){
         goodOldIO.setDotsForInterpolate(dots.getDots());
+        goodOldIO.setMethodName(dots.getMethodName());
         goodOldIO.solve();
         return  goodOldIO.getDotsForDraw();
     }

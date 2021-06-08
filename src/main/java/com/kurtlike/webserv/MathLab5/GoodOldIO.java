@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public interface GoodOldIO {
     public void setDotsForInterpolate(ArrayList<Dot> dots);
+    public void setMethodName(String methodName);
     public XValue getXValue(XValue xValue);
     public Dots getDotsForDraw();
     public boolean solve();
