@@ -12,7 +12,6 @@ public class Lab3Controller {
     }
     @PostMapping(value = "/getAnswer")
     public Answer getAnswer(@RequestBody RequestForAnswer requestForAnswer){
-        System.out.println(requestForAnswer.getSelectedMethod());
         goodOldIO.setChosenMethod(requestForAnswer.getSelectedMethod());
         goodOldIO.setChosenFunction(requestForAnswer.getSelectedFunction());
         goodOldIO.setBorders(requestForAnswer.getLeftBorder(), requestForAnswer.getRightBorder());

@@ -10,14 +10,14 @@ public class Simpson extends AbstractMethod implements Method {
         double di = (right - left) / counter;
 //        for (double i = left; i < right-2*di; i += di) {
 //
-//            psolution+=di/3*(function.fun(i)+4*function.fun(i+di)+function.fun(i+di+di))/2;
+//            psolution+=di/3*(Function.fun(i)+4*Function.fun(i+di)+Function.fun(i+di+di))/2;
 //        }
 //        counter++;
 //        while (!isEnd){
 //            solution = 0;
 //            di = (right - left) / 2 / counter;
 //            for (double i = left; i < right-2*di; i += di) {
-//                solution += di/3*(function.fun(i)+4*function.fun(i+di)+function.fun(i+di+di))/2;
+//                solution += di/3*(Function.fun(i)+4*Function.fun(i+di)+Function.fun(i+di+di))/2;
 //            }
 
         psolution = function.fun(left);
@@ -39,7 +39,7 @@ public class Simpson extends AbstractMethod implements Method {
             }
             solution*=di/3;
             if (Math.abs(solution - psolution) > accuracy) {
-                counter*=2;
+                counter++;
                 psolution = solution;
             } else {
                 isEnd = true;

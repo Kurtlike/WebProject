@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("lab4")
 public class Lab4Controller {
-    GoodOldIO goodOldIO = new Test();
+    GoodOldIO goodOldIO = new BadNewIO();
     @PostMapping(value = "/getAnswer")
     public Answer setDotsForApproximate(@RequestBody Dots dots){
         goodOldIO.setDotsForApproximate(dots.getDots());
