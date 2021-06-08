@@ -26,7 +26,7 @@ function getAnswer(){
             setAnswers(answer.answers);
             reload()
         });
-        document.getElementById("errorsText").innerText = "Отправленно";
+        document.getElementById("errorsText").innerText = "Отправлено";
 
 }
 function setAnswers(answer){
