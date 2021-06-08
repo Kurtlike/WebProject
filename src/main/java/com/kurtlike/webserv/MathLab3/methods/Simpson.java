@@ -39,7 +39,7 @@ public class Simpson extends AbstractMethod implements Method {
             }
             solution*=di/3;
             if (Math.abs(solution - psolution) > accuracy) {
-                counter*=2;
+                counter++;
                 psolution = solution;
             } else {
                 isEnd = true;
