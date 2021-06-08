@@ -2,13 +2,31 @@ package com.kurtlike.webserv.MathLab6.pojo;
 
 import java.util.ArrayList;
     public class MethodAnswer{
-        public MethodAnswer(String methodName, ArrayList<Dot> exactSolution, ArrayList<Dot> numberSolution) {
-            this.methodName = methodName;
-            this.exactSolution = exactSolution;
-            this.numberSolution = numberSolution;
+        private String methodName;
+        private ArrayList<Dot> exactSolution;
+        private ArrayList<Dot> numberSolution;
+
+        public String getMethodName() {
+            return methodName;
         }
 
-        String methodName;
-        ArrayList<Dot> exactSolution;
-        ArrayList<Dot> numberSolution;
+        public void setMethodName(String methodName) {
+            this.methodName = methodName;
+        }
+
+        public ArrayList<Dot> getExactSolution() {
+            return exactSolution;
+        }
+
+        public void setExactSolution(ArrayList<Dot> exactSolution) {
+            this.exactSolution = exactSolution;
+        }
+
+        public ArrayList<Dot> getNumberSolution() {
+            return numberSolution;
+        }
+
+        public void setNumberSolution(ArrayList<Dot> numberSolution) {
+            this.numberSolution = numberSolution;
+        }
     }

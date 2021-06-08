@@ -18,6 +18,11 @@ public class BadNewIO implements GoodOldIO {
     }
 
     @Override
+    public void setMethodName(String methodName) {
+        System.out.println(methodName);
+    }
+
+    @Override
     public XValue getXValue(XValue xValue) {
         XValue yValue = new XValue();
         yValue.xValue= solver.newtone(xValue.xValue,inDots);

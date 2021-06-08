@@ -5,7 +5,7 @@ public class RequestForAnswer {
     private double leftBorder;
     private double rightBorder;
     private double accuracy;
-    private int step;
+    private double step;
 
     public int getSelectedFunction() {
         return selectedFunction;
@@ -39,11 +39,11 @@ public class RequestForAnswer {
         this.accuracy = accuracy;
     }
 
-    public int getStep() {
+    public double getStep() {
         return step;
     }
 
-    public void setStep(int steps) {
-        this.step = steps;
+    public void setStep(double step) {
+        this.step = step;
     }
 }

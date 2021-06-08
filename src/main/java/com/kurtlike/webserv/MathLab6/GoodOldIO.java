@@ -11,7 +11,7 @@ public interface GoodOldIO {
     public void setChosenFunction(int function);
     public void setInterval(double left, double right);
     public void setAccuracy(double accuracy);
-    public void setStep(int n);
+    public void setStep(double step);
     public Answer getAnswer();
 
 }
