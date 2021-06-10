@@ -13,7 +13,7 @@ public class Solver {
         double max=dots.get(dots.size()-1).x;
         switch (methodName){
             case "Полином Лагранжа":
-                for(double i=dots.get(0).x-1;i<max+1;i+=0.05){
+                for(double i=dots.get(0).x;i<max;i+=0.05){
                     Dot dot = new Dot();
                     dot.x=i;
                     dot.y=lagrange(i,dots);
@@ -21,7 +21,7 @@ public class Solver {
                 }
                 break;
             case "Полином Ньютона":
-                for(double i=dots.get(0).x-1;i<max+1;i+=0.05){
+                for(double i=dots.get(0).x;i<max;i+=0.05){
                     Dot dot = new Dot();
                     dot.x=i;
                     dot.y=newtone(i,dots);

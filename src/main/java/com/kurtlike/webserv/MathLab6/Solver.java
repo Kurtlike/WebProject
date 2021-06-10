@@ -48,7 +48,7 @@ public class Solver {
             x+=h;
         }
         for(int i=5; i<n; i++){
-            y=dots.get(i-1).y+(h/24)*(55*dots.get(i-1).x-59*dots.get(i-2).x+37*dots.get(i-3).x-9*dots.get(i-4).x);
+            y=dots.get(i-1).y+(h/24)*(55*func.fun(dots.get(i-1).x,dots.get(i-1).y)-59*func.fun(dots.get(i-2).x,dots.get(i-2).y)+37*func.fun(dots.get(i-3).x,dots.get(i-3).y)-9*func.fun(dots.get(i-4).x,dots.get(i-4).y));
             dot = new Dot(x,y);
             dots.add(dot);
             x+=h;

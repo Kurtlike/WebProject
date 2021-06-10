@@ -18,8 +18,8 @@ public class BadNewIO implements GoodOldIO {
 
     public BadNewIO(){
     functions.put(0,"y'=x");
-    functions.put(1,"y'=xy");
-    functions.put(2,"y'=1-y^2");
+    functions.put(1,"y'=x+x^2");
+    functions.put(2,"y'=y+1");
     }
     @Override
     public HashMap<Integer, String> getFunctions() {
@@ -64,6 +64,7 @@ public class BadNewIO implements GoodOldIO {
         Solver solver=new Solver();
         Answer answer = new Answer();
         ArrayList<MethodAnswer> list = new ArrayList<>();
+        System.out.println(left+ " " + right + " "+ y0 + " "+ step + "\n");
         list.add(solver.euler(func, left, right, y0, step));
         list.add(solver.adams(func, left, right, y0, step));
         answer.setAnswers(list);

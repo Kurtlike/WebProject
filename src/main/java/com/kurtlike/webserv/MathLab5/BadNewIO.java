@@ -16,6 +16,24 @@ public class BadNewIO implements GoodOldIO {
     String methodName;
     @Override
     public void setDotsForInterpolate(ArrayList<Dot> dots) {
+        ArrayList<Dot> dots1 = new ArrayList<>();
+        boolean c=false;
+        for(Dot dot1: dots){
+
+            for(Dot dot2:dots1){
+                if(dot2.x==dot1.x){
+                    c=true;
+                    break;
+                }
+            }
+            if(!c){
+                dots1.add(dot1);
+            }
+            c=false;
+        }
+        dots=dots1;
+        dots.forEach(dot ->
+                System.out.println(dot.x+" "+dot.y+"\n"));
         Collections.sort(dots, (o1, o2) -> {
             if (o1.x > o2.x) {
                 return 1;
@@ -34,6 +52,7 @@ public class BadNewIO implements GoodOldIO {
     @Override
     public XValue getXValue(XValue xValue) {
         XValue yValue = new XValue();
+        System.out.println("Лагранж "+solver.lagrange(xValue.xValue,inDots)+"\n"+"Ньютон "+solver.newtone(xValue.xValue,inDots)+"\n");
         switch (methodName){
             case "Полином Лагранжа":
                 yValue.xValue= solver.lagrange(xValue.xValue,inDots);
@@ -42,7 +61,7 @@ public class BadNewIO implements GoodOldIO {
                 yValue.xValue= solver.newtone(xValue.xValue,inDots);
                 break;
         }
-        yValue.xValue= solver.lagrange(xValue.xValue,inDots);
+//        yValue.xValue= solver.lagrange(xValue.xValue,inDots);
         return yValue;
     }
 
