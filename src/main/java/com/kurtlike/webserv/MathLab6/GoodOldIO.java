@@ -10,7 +10,7 @@ public interface GoodOldIO {
     public HashMap<Integer,String> getFunctions();
     public void setChosenFunction(int function);
     public void setInterval(double left, double right);
-    public void setY0(double accuracy);
+    public void setYNull(double yNull);
     public void setStep(double step);
     public Answer getAnswer();
 
