@@ -50,8 +50,8 @@ public class BadNewIO implements GoodOldIO {
     }
 
     @Override
-    public void setY0(double y0) {
-        this.y0=y0;
+    public void setYNull(double yNull) {
+        this.y0=yNull;
     }
 
     @Override
@@ -64,7 +64,6 @@ public class BadNewIO implements GoodOldIO {
         Solver solver=new Solver();
         Answer answer = new Answer();
         ArrayList<MethodAnswer> list = new ArrayList<>();
-        System.out.println(left+ " " + right + " "+ y0 + " "+ step + "\n");
         list.add(solver.euler(func, left, right, y0, step));
         list.add(solver.adams(func, left, right, y0, step));
         answer.setAnswers(list);
