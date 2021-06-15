@@ -1,7 +1,7 @@
-var funcDotsM1EX =[]
-var funcDotsM2EX =[]
-var funcDotsM1NM =[]
-var funcDotsM2NM =[]
+let funcDotsM1EX =[]
+let funcDotsM2EX =[]
+let funcDotsM1NM =[]
+let funcDotsM2NM =[]
 function getAnswer(){
     let left = document.getElementById("left").value;
     let right = document.getElementById("right").value;

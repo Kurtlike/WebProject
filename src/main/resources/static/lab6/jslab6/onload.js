@@ -10,7 +10,6 @@ window.onload=function () {
 function updateForms(data) {
     let func = data.functions;
 
-
     for(let i = 0; i < Object.keys(func).length; i++){
         let funkO = document.createElement("option");
         funkO.value = i;
